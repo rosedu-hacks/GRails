@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+    <% if user_signed_in? %>
+      <h1 class='text-left'>Hello! <small><%="#{current_user.first_name} #{current_user.last_name}"%></small></h1>
+      <div class="btn-group">
+          <button type="button" class="btn btn-default">Sign out</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Settings<span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#"></a>Profile</li>
+                <li><a href="#">Edit profile</a></li>
+                <li><a href="#">Something else here</a></li>
+             </ul>
+         </div>
+        </div>
+    <% else %>
+      <h1 class='text-left'>Hello! <small>Welcome!</small></h1>
+      <div class="btn-group">
+          <button type="button" class="btn btn-default">Sign up</button>
+          <button type="button" class="btn btn-default">Sign in</button>
+    </div>
+    <% end %>
+    </div>
+</nav>
