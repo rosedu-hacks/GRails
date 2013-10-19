@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019172007) do
+ActiveRecord::Schema.define(version: 20131019172942) do
 
   create_table "administrators", force: true do |t|
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "faculty"
+    t.string   "role"
   end
 
   create_table "admissions", force: true do |t|
