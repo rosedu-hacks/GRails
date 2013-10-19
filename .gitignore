@@ -3,3 +3,5 @@
 *.~
 *.sqlite3
 *sublime-*
+tmp/*
+public/assets/*
