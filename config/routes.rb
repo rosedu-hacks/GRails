@@ -7,6 +7,7 @@ UniversityRegistration::Application.routes.draw do
   match :user_type, to: "static_pages#user_type", via: :get
   # Users pages
   devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :administrators
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
