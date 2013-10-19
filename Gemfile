@@ -13,6 +13,9 @@ group :production, :testing do
   gem 'pg'
 end
 
+# Use Devise for user authentification
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
