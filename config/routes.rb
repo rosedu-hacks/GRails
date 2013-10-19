@@ -3,7 +3,7 @@ UniversityRegistration::Application.routes.draw do
 
   # Static pages
   root to: 'static_pages#home'
-  get "static_pages/about"
+  match :about, to: "static_pages#about", via: :get
   # Users pages
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
