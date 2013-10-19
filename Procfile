@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORT -c ./config/application.rb
+web: bundle exec rails server -p $PORT
