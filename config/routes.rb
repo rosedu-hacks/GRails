@@ -4,7 +4,17 @@ UniversityRegistration::Application.routes.draw do
   get "static_pages/about"
   # Users pages
   devise_for :users
+
   resources :students
+  resources :contacts
+  resources :schools
+  resources :diplomas
+  resources :admissions
+  resources :exams
+  resources :administrators
+
+  match 'admission_forms/new', to: 'admission_forms#new', :via => :get, action: 'new'
+  match 'admission_forms/populate', to: 'admission_forms#populate', :via => :post, action: 'populate'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

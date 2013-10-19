@@ -1,0 +1,65 @@
+<%= form_tag(controller: "admission_forms", action: "populate", method: "post") do %>
+<div class="field"></div>
+  <div class="field">
+    <%= hidden_field_tag "user_id", current_user.id %>
+  </div>
+  <div class="field">
+    <%= label_tag :first_name, "First name" %><br />
+    <%= text_field_tag (:first_name) %>
+  </div>
+  <div class="field">
+    <%= label_tag :last_name, "Last name" %><br />
+    <%= text_field_tag (:last_name) %>
+  </div>
+  <div class="field">
+    <%= label_tag :father_name, "Father name" %><br />
+    <%= text_field_tag (:father_name) %>
+  </div>
+  <div class="field">
+    <%= label_tag :mother_name, "Mother name" %><br />
+    <%= text_field_tag (:mother_name) %>
+  </div>
+  <div class="field">
+    <%= label_tag :email,"Email" %><br />
+    <%= email_field_tag (:email)%>
+  </div>
+  <div class="field">
+    <%= label_tag :cnp, "CNP" %><br />
+    <%= text_field_tag (:cnp) %>
+  </div>
+  <div class="field">
+    <%= label_tag :serie, "Series of ID card" %><br />
+    <%= text_field_tag (:serie) %>
+  </div>
+  <div class="field">
+    <%= label_tag :number, "Number of ID card" %><br />
+    <%= text_field_tag (:number) %>
+  </div>
+  <div class="field">
+    <%= label_tag :country, "Country" %><br />
+    <%= text_field_tag (:country) %>
+  </div> 
+  <div class="field">
+    <%= label_tag :region, "Region" %><br />
+    <%= text_field_tag (:region) %>
+  </div> 
+  <div class="field">
+    <%= label_tag :ethnicity, "Ethnicity" %><br />
+    <%= text_field_tag (:ethnicity) %>
+  </div> 
+  <div class="field">
+    <%= label_tag :citizenship, "Citizenship" %><br />
+    <%= text_field_tag (:citizenship) %>
+  </div> 
+  <div class="field">
+    <%= label_tag :address, "Address" %><br />
+    <%= text_field_tag (:address) %>
+  </div> 
+  <div class="field">
+    <%= label_tag :telephone, "Telephone" %><br />
+    <%= text_field_tag (:telephone) %>
+  </div> 
+  <div class="actions">
+    <%= submit_tag("Submit") %>
+  </div>
+<% end %>
