@@ -5,6 +5,4 @@ class School < ActiveRecord::Base
     validates :city, presence: true
     validates :specialization, presence: true
     validates :field, presence: true
-
-    belongs_to :student
 end
