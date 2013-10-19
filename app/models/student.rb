@@ -6,4 +6,5 @@ class Student < ActiveRecord::Base
         ['Enrolled', 'enrolled'], ['Alumni', 'alumni'], ['Rejected', 'rejected']]
 
     belongs_to :user
+    has_many :school
 end
