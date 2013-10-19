@@ -26,7 +26,7 @@
                 <li><%= link_to "Edit Profile", edit_user_registration_path%></li>
              </ul>
         </div>
-          <button type="button" class="btn btn-default"><%= link_to "Sign out", destroy_user_session_path%></button>
+          <button type="button" class="btn btn-default"><%= link_to "Sign out", destroy_user_session_path, method: :delete%></button>
         </ul>
        </div>
        </div>
