@@ -35,6 +35,13 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+
+    if contact_params[:user_id].nil?
+      contact_params[:user_id] = @student.user_id
+    end
+    @contact = Contact.new(contact_params)
+    @contact.save
+
   end
 
   # PATCH/PUT /students/1
@@ -62,6 +69,7 @@ class StudentsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])
@@ -70,5 +78,10 @@ class StudentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
       params.require(:student).permit(:mother_name, :father_name, :status)
+    end
+
+    def contact_params
+      params.require(:student)[:contact].permit(:user_id, :id_type, :cnp, :serie, :number,
+        :country, :region, :city, :citizenship, :address, :telephone, :ethnicity)
     end
 end

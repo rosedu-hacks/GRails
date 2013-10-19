@@ -11,11 +11,49 @@
     </div>
   <% end %>
 
+    <h3> Parent info </h3>
       <%= f.label :mother_name %>
       <%= f.text_field :mother_name %>
 
       <%= f.label :father_name %>
       <%= f.text_field :father_name %>
+
+ <%= fields_for :contact  do |c| %>
+    <h3> Identification </h3>
+      <%= c.label :type %>
+      <%= c.text_field :type %>
+
+      <%= c.label :cnp %>
+      <%= c.text_field :cnp %>
+
+      <%= c.label :serie %>
+      <%= c.text_field :serie %>
+
+      <%= c.label :number %>
+      <%= c.text_field :number %>
+
+    <h3> Location info </h3>
+      <%= c.label :country %>
+      <%= c.text_field :country %>
+
+      <%= c.label :region %>
+      <%= c.text_field :region %>
+
+      <%= c.label :city %>
+      <%= c.text_field :city %>
+
+      <%= c.label :ethnicity %>
+      <%= c.text_field :ethnicity%>
+
+      <%= c.label :citizenship %>
+      <%= c.text_field :citizenship %>
+
+      <%= c.label :address %>
+      <%= c.text_field :address%>
+
+      <%= c.label :telephone %>
+      <%= c.text_field :telephone %>
+ <% end %>
 
   <div class="actions">
     <%= f.submit %>
