@@ -2,8 +2,10 @@ UniversityRegistration::Application.routes.draw do
   # Static pages
   root to: 'static_pages#home'
   match :about, to: "static_pages#about", via: :get
+  match :user_type, to: "static_pages#user_type", via: :get
   # Users pages
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :administrators
 
   resources :students
   resources :contacts
