@@ -3,11 +3,10 @@ ruby '1.9.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'rails_12factor'
+gem 'bootstrap-sass', '2.3.2.0'
 
 group :assets do
     gem "therubyracer"
-    gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-    gem "twitter-bootstrap-rails"
 end
 
 group :development do
