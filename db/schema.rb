@@ -11,17 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019165915) do
+ActiveRecord::Schema.define(version: 20131019172942) do
 
   create_table "administrators", force: true do |t|
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "faculty"
+    t.string   "role"
   end
 
   create_table "admissions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "student_id"
+    t.string   "field"
+    t.string   "specialization"
+    t.string   "payment_type"
   end
 
   create_table "contacts", force: true do |t|
@@ -44,11 +50,22 @@ ActiveRecord::Schema.define(version: 20131019165915) do
   create_table "diplomas", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "student_id"
+    t.string   "type"
+    t.date     "date"
+    t.string   "serie"
+    t.integer  "number"
+    t.integer  "average"
   end
 
   create_table "exams", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "student_id"
+    t.string   "type"
+    t.string   "course"
+    t.integer  "grade"
+    t.integer  "payment"
   end
 
   create_table "schools", force: true do |t|
