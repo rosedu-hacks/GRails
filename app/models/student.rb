@@ -8,4 +8,5 @@ class Student < ActiveRecord::Base
     belongs_to :user
     has_many :schools
     has_many :diplomas
+    has_many :admissions
 end
