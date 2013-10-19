@@ -9,4 +9,5 @@ class Student < ActiveRecord::Base
     has_many :schools
     has_many :diplomas
     has_many :admissions
+    has_many :exams
 end
