@@ -1,4 +1,6 @@
 UniversityRegistration::Application.routes.draw do
+  resources :students
+
   # Static pages
   root to: 'static_pages#home'
   get "static_pages/about"
