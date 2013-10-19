@@ -16,7 +16,8 @@ class AdmissionFormsController < ApplicationController
     print @student.id
     @student.father_name = params[:father_name]
     @student.mother_name = params[:mother_name]
-
+    @student.save
+    
     #@contact = Contact.new(params[:])
 
   	redirect_to root_path
