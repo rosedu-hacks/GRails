@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+      <%= hidden_field_tag "user_id", current_user.id %>
+
       <%= f.label :mother_name %>
       <%= f.text_field :mother_name %>
 

@@ -12,7 +12,12 @@ class AdmissionFormsController < ApplicationController
   	@first_name = params[:first_name]
   	print @first_name
 
-  	#@student = Student.find(params[:user_id])
+  	@student = Student.find_by_user_id(params[:user_id])
+    print @student.id
+    @student.father_name = params[:father_name]
+    @student.mother_name = params[:mother_name]
+
+    #@contact = Contact.new(params[:])
 
   	redirect_to root_path
   end
