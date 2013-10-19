@@ -1,26 +1,36 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+  <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
     <% if user_signed_in? %>
-      <h1 class='text-left'>Hello! <small><%="#{current_user.first_name} #{current_user.last_name}"%></small></h1>
-      <div class="btn-group">
-          <button type="button" class="btn btn-default">Sign out</button>
+      <div class="navbar-header pull-left">
+        <h1 class='text-left' id='logo'>Hello, <small><%="#{current_user.first_name} #{current_user.last_name}!"%></small></h1>
+      </div>
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default"><%= link_to "Home", root_path%></button>
+          <button type="button" class="btn btn-default"><%= link_to "Sign out", destroy_user_session_path%></button>
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 Settings<span class="caret"></span>
             </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#"></a>Profile</li>
-                <li><a href="#">Edit profile</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><%= link_to "Profile", '#'%></li>
+                <li><%= link_to "Edit Profile", edit_user_registration_path%></li>
              </ul>
          </div>
-        </div>
     <% else %>
-      <h1 class='text-left'>Hello! <small>Welcome!</small></h1>
-      <div class="btn-group">
-          <button type="button" class="btn btn-default">Sign up</button>
-          <button type="button" class="btn btn-default">Sign in</button>
-    </div>
+      <div class="navbar-header pull-left">
+        <h1 class='text-left' id='logo'>Hello!</h1>
+      </div>
+      <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default"><%= link_to "Home", root_path%></button>
+          <button type="button" class="btn btn-default"><%= link_to "Sign up", new_user_registration_path%></button>
+          <button type="button" class="btn btn-default"><%= link_to "Sign in", new_user_session_path%></button>
+     </div>
     <% end %>
     </div>
+  </div>
 </nav>
+</div>
+</div>
+</header>
