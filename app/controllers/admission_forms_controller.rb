@@ -17,8 +17,23 @@ class AdmissionFormsController < ApplicationController
     @student.father_name = params[:father_name]
     @student.mother_name = params[:mother_name]
     @student.save
-    
-    #@contact = Contact.new(params[:])
+
+    @contact = Contact.new
+    @contact.user_id = params[:user_id]
+    @contact.cnp = params[:cnp]
+    @contact.serie = params[:serie]
+    @contact.number = params[:number]
+    @contact.country = params[:country]
+    @contact.region = params[:region]
+    @contact.city = params[:city]
+    @contact.ethnicity = params[:ethnicity]
+    @contact.citizenship = params[:citizenship]
+    @contact.address = params[:address]
+    @contact.citizenship = params[:citizenship]
+    @contact.telephone = params[:telephone]
+    @contact.save
+
+    print @contact.cnp
 
   	redirect_to root_path
   end
