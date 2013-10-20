@@ -1,7 +1,4 @@
 UniversityRegistration::Application.routes.draw do
-  mount RailsAdmin::Engine => '/administrator', :as => 'rails_admin'
-  devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks" }
-
   root to: 'static_pages#home'
   match :about, to: "static_pages#about", via: :get
   match :user_type, to: "static_pages#user_type", via: :get
@@ -12,6 +9,8 @@ UniversityRegistration::Application.routes.draw do
   match 'registration_forms/new', to: 'registration_forms#new', :via => :get, action: 'new'
   match 'registration_forms/populate', to: 'registration_forms#populate', :via => :post, action: 'populate'
 
+  devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks" }
+  mount RailsAdmin::Engine => '/administrator', :as => 'rails_admin'
   resources :students
   resources :administrators
   resources :students
