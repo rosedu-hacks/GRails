@@ -21,6 +21,7 @@ class AdmissionFormsController < ApplicationController
     @contact = Contact.new
     @contact.user_id = params[:user_id]
     @contact.cnp = params[:cnp]
+    @contact.id_type = params[:id_type]
     @contact.serie = params[:serie]
     @contact.number = params[:number]
     @contact.country = params[:country]
