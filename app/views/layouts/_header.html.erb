@@ -12,7 +12,7 @@
         <div class="btn-group">
         <ul>
           <button type="button" class="btn btn-default"><%= link_to "Home", root_path%></button>
-          <% if !Contact.joins(:user).where(:users => {id: current_user.id}).first.nil? %>
+          <% if has_contact %>
           <button type="button" class="btn btn-default"><%= link_to "Connect", connect_path%></button>
             <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Forms <span class="caret"></span></button>

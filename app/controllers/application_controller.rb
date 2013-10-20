@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def get_student_info
     Student.find_by_user_id(current_user.id)
   end
-  
+
   def create_admission admission_params
     admission_params['student_id'] = Student.find_by_user_id(current_user.id).id
     @admission = Admission.new(admission_params)
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def connections
     @contact = Contact.joins(:user).where(users: {id: current_user.id}).first
-    @students = Student.joins(:user).where(:students => {:status => 'new'}).select(:first_name, :last_name, :email)
+    @students = Student.joins(:user).where(:students => {:status => 'new'}).select(:first_name, :last_name, :email, :url)
     render 'show_connections'
   end
 
