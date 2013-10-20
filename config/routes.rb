@@ -8,11 +8,17 @@ UniversityRegistration::Application.routes.draw do
   # Users pages
   resources :students
   resources :administrators
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  resources :students
+  resources :contacts
+  resources :schools
+  resources :diplomas
+  resources :admissions
+  resources :exams
+  resources :administrators
+
+  match 'admission_forms/new', to: 'admission_forms#new', :via => :get, action: 'new'
+  match 'admission_forms/populate', to: 'admission_forms#populate', :via => :post, action: 'populate'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

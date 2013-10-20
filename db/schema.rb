@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20131020024253) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "student_id"
-    t.string   "diplomas_type"
+    t.string   "diploma_type"
     t.date     "date"
     t.string   "serie"
     t.integer  "number"
