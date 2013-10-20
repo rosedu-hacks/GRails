@@ -1,4 +1,5 @@
 UniversityRegistration::Application.routes.draw do
+  mount RailsAdmin::Engine => '/administrator', :as => 'rails_admin'
   devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks" }
   # Static pages
   root to: 'static_pages#home'
