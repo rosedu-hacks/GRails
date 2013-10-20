@@ -7,7 +7,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
-
+    print "FACEBOOK", session["devise.facebook_data"][:extra]
     @user.last_name = session["devise.facebook_data"][:extra][:raw_info][:last_name]
     @user.first_name = session["devise.facebook_data"][:extra][:raw_info][:first_name]
     @user.url = session["devise.facebook_data"][:extra][:raw_info][:link]
