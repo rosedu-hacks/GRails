@@ -18,7 +18,7 @@
       <%= f.label :father_name %>
       <%= f.text_field :father_name %>
 
-      <%= f.hidden_field_tag 'user_id', current_user.id %>
+      <%= hidden_field_tag 'user_id', current_user.id %>
 
  <%= fields_for :contact  do |c| %>
     <h3> Identification </h3>
