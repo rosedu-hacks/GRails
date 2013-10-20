@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
     @contact = create_contact contact_params
 
     respond_to do |format|
-      if @student.save && @contact.save
+      if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else

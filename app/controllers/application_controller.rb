@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     @contact = Contact.new(contact_params)
   end
 
+  def get_student_info
+    Student.find_by_user_id(current_user.id)
+  end
+  
   def create_admission admission_params
     admission_params['student_id'] = Student.find_by_user_id(current_user.id).id
     @admission = Admission.new(admission_params)

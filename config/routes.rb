@@ -22,6 +22,8 @@ UniversityRegistration::Application.routes.draw do
 
 
 
+  match 'registration_forms/new', to: 'registration_forms#new', :via => :get, action: 'new'
+  match 'registration_forms/populate', to: 'registration_forms#populate', :via => :post, action: 'populate'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
