@@ -4,6 +4,7 @@ UniversityRegistration::Application.routes.draw do
   root to: 'static_pages#home'
   match :about, to: "static_pages#about", via: :get
   match :user_type, to: "static_pages#user_type", via: :get
+  match :profile, to: "students#show", via: :get
   # Users pages
   resources :students
   resources :administrators
