@@ -26,9 +26,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     @student.status = 'new'
-    @student.user_id = params[:user_id]
+    @contact = create_contact contact_params
     respond_to do |format|
-      if @student.save
+      if @student.save && @contact.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else
@@ -36,20 +36,13 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
-
-    if contact_params[:user_id].nil?
-      contact_params[:user_id] = @student.user_id
-    end
-    @contact = Contact.new(contact_params)
-    @contact.save
-
   end
 
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
-      if @student.update(student_params)
+      if @student.update(student_params) && @contact.update(contact_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else
@@ -82,7 +75,7 @@ class StudentsController < ApplicationController
     end
 
     def contact_params
-      params.require(:student)[:contact].permit(:user_id, :id_type, :cnp, :serie, :number,
+      params.require(:contact).permit(:user_id, :id_type, :cnp, :serie, :number,
         :country, :region, :city, :citizenship, :address, :telephone, :ethnicity)
     end
 end

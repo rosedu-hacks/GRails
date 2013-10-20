@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def create_contact contact_params
+    if contact_params[:user_id].nil?
+      contact_params[:user_id] = current_user.id
+    end
+    @contact = Contact.new(contact_params)
+  end
+
   protected
 
   def configure_permitted_parameters
