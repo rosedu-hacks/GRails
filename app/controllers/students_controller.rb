@@ -27,9 +27,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     @student.status = 'new'
-
+    
     @contact = create_contact contact_params
-
+    
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
@@ -45,7 +45,7 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
-      if @student.update(student_params) 
+      if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else

@@ -1,5 +1,5 @@
 UniversityRegistration::Application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
   # Static pages
   root to: 'static_pages#home'
   match :about, to: "static_pages#about", via: :get
@@ -8,8 +8,6 @@ UniversityRegistration::Application.routes.draw do
   # Users pages
   resources :students
   resources :administrators
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   resources :students
   resources :contacts

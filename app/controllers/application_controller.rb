@@ -18,9 +18,19 @@ class ApplicationController < ActionController::Base
   def get_contact_info
     Contact.find_by_user_id(current_user.id)
   end
+  def create_admission admission_params
+    admission_params['student_id'] = Student.find_by_user_id(current_user.id).id
+    @admission = Admission.new(admission_params)
+  end
+
+  def get_contact
+    @contact = Contact.find_by_user_id(current_user.id)
+  end
+
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :first_name, :last_name, :password) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
+      :email, :first_name, :last_name, :password, :uid, :name, :provider) }
   end
 end
