@@ -229,7 +229,7 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "312703892204592", "0ca3009b26ca77800b9f1efbca101dcd"
+  config.omniauth :facebook, "312703892204592", "0ca3009b26ca77800b9f1efbca101dcd", {client_options: {ssl: {ca_file: Rails.root.join('lib/assets/cacert.pem').to_s}}}
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
