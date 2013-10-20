@@ -27,7 +27,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     @student.status = 'new'
+    
     @contact = create_contact contact_params
+    
     respond_to do |format|
       if @student.save && @contact.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }

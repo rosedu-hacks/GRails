@@ -7,35 +7,24 @@ class AdmissionFormsController < ApplicationController
     end
   end
 
-  def populate
-  	print params
-  	@first_name = params[:first_name]
-  	print @first_name
+  def populate 
+    @admission = create_admission(admission_params)
+    respond_to do |format|
+    if @admission.save
+        format.html { redirect_to root_path, notice: 'Admission form was successfully updated.' }
+        format.json { head :no_content }
+      else
+        print "fuck"
+        format.html { render action: 'new' }
+        format.json { render json: @admission.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  	@student = Student.find_by_user_id(params[:user_id])
-    print @student.id
-    @student.father_name = params[:father_name]
-    @student.mother_name = params[:mother_name]
-    @student.save
+  private
 
-    @contact = Contact.new
-    @contact.user_id = params[:user_id]
-    @contact.cnp = params[:cnp]
-    @contact.id_type = params[:id_type]
-    @contact.serie = params[:serie]
-    @contact.number = params[:number]
-    @contact.country = params[:country]
-    @contact.region = params[:region]
-    @contact.city = params[:city]
-    @contact.ethnicity = params[:ethnicity]
-    @contact.citizenship = params[:citizenship]
-    @contact.address = params[:address]
-    @contact.citizenship = params[:citizenship]
-    @contact.telephone = params[:telephone]
-    @contact.save
-
-    print @contact.cnp
-
-  	redirect_to root_path
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admission_params
+    params.require(:admission).permit(:field, :specialization, :payment_type)
   end
 end

@@ -3,6 +3,5 @@ class Admission < ActiveRecord::Base
     validates :field, presence: true
     validates :specialization, presence: true
     validates :payment_type, presence: true
-    validates_inclusion_of :payment_type, :in => [['Budget','budget'], ['Tax', 'tax']]
-
+    validates_inclusion_of :payment_type, :in => ['budget', 'tax']
 end

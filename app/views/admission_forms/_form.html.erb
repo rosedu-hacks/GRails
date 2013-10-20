@@ -1,16 +1,32 @@
 <%= form_tag(controller: "admission_forms", action: "populate", method: "post") do %>
 <div class="field"></div>
   <div class="field">
-    <%= hidden_field_tag "user_id", current_user.id %>
   </div>
   <div class="field">
     <%= label_tag :first_name, "First name" %><br />
-    <%= text_field_tag :first_name, User.find(current_user.id).first_name %>
+    <%= text_field_tag :first_name, current_user.first_name %>
   </div>
   <div class="field">
     <%= label_tag :last_name, "Last name" %><br />
-    <%= text_field_tag :last_name, User.find(current_user.id).last_name %>
+    <%= text_field_tag :last_name, current_user.last_name %>
   </div>
+
+  <h3> Admission info </h3>
+  <%= fields_for :admission do |a| %>
+    <div class="field">
+      <%= a.label :field, "Field" %><br />
+      <%= a.text_field :field %>
+    </div>
+    <div class="field">
+      <%= a.label :specialization, "Specialization" %><br />
+      <%= a.text_field :specialization %>
+    </div>  
+    <div class="field">
+      <%= a.label :payment_type, "Payment type" %><br />
+      <%= a.text_field :payment_type %>
+    </div>   
+  <% end %>
+  <h3> Parent info </h3>
   <div class="field">
     <%= label_tag :father_name, "Father name" %><br />
     <%= text_field_tag :father_name, Student.find_by_user_id(current_user.id).father_name %>
@@ -19,9 +35,11 @@
     <%= label_tag :mother_name, "Mother name" %><br />
     <%= text_field_tag :mother_name, Student.find_by_user_id(current_user.id).mother_name %>
   </div>
+
+  <h3> Identification </h3>
   <div class="field">
     <%= label_tag :email,"Email" %><br />
-    <%= email_field_tag :email, Contact.find_by_user_id(current_user.id).email%>
+    <%= email_field_tag :email, User.find(current_user.id).email%>
   </div>
   <div class="field">
     <%= label_tag :cnp, "CNP" %><br />
@@ -39,6 +57,8 @@
     <%= label_tag :number, "Number of ID card" %><br />
     <%= text_field_tag (:number), Contact.find_by_user_id(current_user.id).number%>
   </div>
+
+  <h3> Location info </h3>
   <div class="field">
     <%= label_tag :country, "Country" %><br />
     <%= text_field_tag (:country), Contact.find_by_user_id(current_user.id).country %>
