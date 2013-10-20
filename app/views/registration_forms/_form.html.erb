@@ -33,31 +33,31 @@
   </div>
   <div class="field">
     <%= label_tag :number, "Number of ID card" %><br />
-    <%= text_field_tag (:number) %>
+    <%= text_field_tag :number, @contact.number %>
   </div>
   <div class="field">
     <%= label_tag :country, "Country" %><br />
-    <%= text_field_tag (:country) %>
+    <%= text_field_tag :country, @contact.country %>
   </div> 
   <div class="field">
     <%= label_tag :region, "Region" %><br />
-    <%= text_field_tag (:region) %>
+    <%= text_field_tag :region, @contact.region %>
   </div> 
   <div class="field">
     <%= label_tag :ethnicity, "Ethnicity" %><br />
-    <%= text_field_tag (:ethnicity) %>
+    <%= text_field_tag :ethnicity, @contact.ethnicity %>
   </div> 
   <div class="field">
     <%= label_tag :citizenship, "Citizenship" %><br />
-    <%= text_field_tag (:citizenship) %>
+    <%= text_field_tag :citizenship, @contact.citizenship %>
   </div> 
   <div class="field">
     <%= label_tag :address, "Address" %><br />
-    <%= text_field_tag (:address) %>
+    <%= text_field_tag :address, @contact.address %>
   </div> 
   <div class="field">
     <%= label_tag :telephone, "Telephone" %><br />
-    <%= telephone_field_tag (:telephone) %>
+    <%= telephone_field_tag :telephone, @contact.telephone %>
   </div> 
   <div>
   <%= check_box_tag 'scholarship', '1', false %>
