@@ -1,7 +1,8 @@
 class RegistrationFormsController < ApplicationController
  def new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # show.html.erb
+      format.json { render json: @student }
     end
   end
 
