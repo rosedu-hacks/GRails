@@ -27,9 +27,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     @student.status = 'new'
-    
+
     @contact = create_contact contact_params
-    
+
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
@@ -63,6 +63,10 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url }
       format.json { head :no_content }
     end
+  end
+
+  def show_connections
+    @students = connections
   end
 
   private

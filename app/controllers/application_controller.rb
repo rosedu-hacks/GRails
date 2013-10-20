@@ -24,6 +24,12 @@ class ApplicationController < ActionController::Base
     @contact = Contact.find_by_user_id(current_user.id)
   end
 
+  def connections
+    @contact = Contact.joins(:user).where(users: {id: current_user.id}).first
+    @students = Student.joins(:user).where(:students => {:status => 'new'}).select(:first_name, :last_name, :email)
+    render 'show_connections'
+  end
+
   protected
 
   def configure_permitted_parameters
