@@ -25,6 +25,10 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+    if !Student.find_by_user_id(current_user.id).nil?
+      redirect_to 'update'
+    end
+
     @student = Student.new(student_params)
     @student.status = 'new'
 
@@ -44,8 +48,9 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    @contact =  get_contact
     respond_to do |format|
-      if @student.update(student_params)
+      if @student.update(student_params) && @contact.update(contact_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else

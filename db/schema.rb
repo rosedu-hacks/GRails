@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20131020075707) do
     t.string   "last_name"
     t.string   "provider"
     t.string   "uid"
-    t.string   "name"
+    t.string   "oauth_token"
     t.string   "url"
   end
 
