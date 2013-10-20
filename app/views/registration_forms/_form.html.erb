@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= label_tag :cnp, "CNP" %><br />
-    <%= text_field_tag :cnp,  @student.cnp %>
+    <%= text_field_tag (:cnp) %>
   </div>
   <div class="field">
     <%= label_tag :serie, "Series of ID card" %><br />
-    <%= text_field_tag :serie, @student.serie %>
+    <%= text_field_tag (:serie)  %>
   </div>
   <div class="field">
     <%= label_tag :number, "Number of ID card" %><br />
