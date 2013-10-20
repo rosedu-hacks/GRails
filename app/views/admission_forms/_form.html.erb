@@ -5,15 +5,15 @@
   </div>
   <div class="field">
     <%= label_tag :first_name, "First name" %><br />
-    <%= text_field_tag (:first_name) %>
+    <%= text_field_tag :first_name, User.find(current_user.id).first_name %>
   </div>
   <div class="field">
     <%= label_tag :last_name, "Last name" %><br />
-    <%= text_field_tag (:last_name) %>
+    <%= text_field_tag :last_name, User.find(current_user.id).last_name %>
   </div>
   <div class="field">
     <%= label_tag :father_name, "Father name" %><br />
-    <%= text_field_tag (:father_name) %>
+    <%= text_field_tag :father_name, Student.find_by_user_id(current_user.id).father_name %>
   </div>
   <div class="field">
     <%= label_tag :mother_name, "Mother name" %><br />
