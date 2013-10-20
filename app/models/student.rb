@@ -1,4 +1,5 @@
 class Student < ActiveRecord::Base
+    validates :user_id, presence: true
     validates :father_name, presence: true, length: { maximum: 50 }
     validates :mother_name, presence: true, length: { maximum: 50 }
     validates :status, presence: true
