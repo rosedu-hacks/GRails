@@ -10,6 +10,10 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @student = Student.find_by_user_id(current_user.id)
+    @student.last_name = current_user.last_name
+    @student.first_name = current_user.first_name
+    @student.email = current_user.email
   end
 
   # GET /students/new
@@ -73,7 +77,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:mother_name, :father_name, :status)
+      params.require(:student).permit(:mother_name, :father_name, :status, :user_id)
     end
 
     def contact_params
