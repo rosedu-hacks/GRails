@@ -13,11 +13,11 @@
   </div>
   <div class="field">
     <%= label_tag :father_name, "Father name" %><br />
-    <%= text_field_tag :father_name, Student.find_by_user_id(current_user.id).father_name %>
+    <%= text_field_tag :father_name, @student.father_name %>
   </div>
   <div class="field">
     <%= label_tag :mother_name, "Mother name" %><br />
-    <%= text_field_tag :mother_name, Student.find_by_user_id(current_user.id).mother_name %>
+    <%= text_field_tag :mother_name, @student.mother_name %>
   </div>
   <div class="field">
     <%= label_tag :email,"Email" %><br />
@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= label_tag :cnp, "CNP" %><br />
-    <%= text_field_tag :cnp,  Student.find_by_user_id(current_user.id).cnp %>
+    <%= text_field_tag :cnp,  @student.cnp %>
   </div>
   <div class="field">
     <%= label_tag :serie, "Series of ID card" %><br />
-    <%= text_field_tag :serie, Student.find_by_user_id(current_user.id).serie %>
+    <%= text_field_tag :serie, @student.serie %>
   </div>
   <div class="field">
     <%= label_tag :number, "Number of ID card" %><br />

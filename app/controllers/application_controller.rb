@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     @contact = Contact.new(contact_params)
   end
 
+  def get_student_info
+    Student.find_by_user_id(current_user.id)
+  end
   protected
 
   def configure_permitted_parameters
