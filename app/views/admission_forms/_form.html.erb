@@ -4,7 +4,7 @@
   </div>
   <div class="field">
     <%= label_tag :first_name, "First name" %><br />
-    <%= text_field_tag :first_name, current_user.first_name %>
+    <%= text_field_tag :first_name, current_user.first_name, :readonly => true %>
   </div>
   <div class="field">
     <%= label_tag :last_name, "Last name" %><br />
@@ -39,49 +39,49 @@
   <h3> Identification </h3>
   <div class="field">
     <%= label_tag :email,"Email" %><br />
-    <%= email_field_tag :email, User.find(current_user.id).email%>
+    <%= email_field_tag :email, current_user.email%>
   </div>
   <div class="field">
     <%= label_tag :cnp, "CNP" %><br />
-    <%= text_field_tag :cnp,  Contact.find_by_user_id(current_user.id).cnp%>
+    <%= text_field_tag :cnp,  @contact.cnp%>
   </div>
   <div class="field">
     <%= label_tag :type, "Type" %><br />
-    <%= text_field_tag (:id_type), Contact.find_by_user_id(current_user.id).id_type %>
+    <%= text_field_tag (:id_type), @contact.id_type %>
   </div> 
   <div class="field">
     <%= label_tag :serie, "Series of ID card" %><br />
-    <%= text_field_tag (:serie), Contact.find_by_user_id(current_user.id).serie%>
+    <%= text_field_tag (:serie), @contact.serie%>
   </div>
   <div class="field">
     <%= label_tag :number, "Number of ID card" %><br />
-    <%= text_field_tag (:number), Contact.find_by_user_id(current_user.id).number%>
+    <%= text_field_tag (:number), @contact.number%>
   </div>
 
   <h3> Location info </h3>
   <div class="field">
     <%= label_tag :country, "Country" %><br />
-    <%= text_field_tag (:country), Contact.find_by_user_id(current_user.id).country %>
+    <%= text_field_tag (:country), @contact.country %>
   </div> 
   <div class="field">
     <%= label_tag :region, "Region" %><br />
-    <%= text_field_tag (:region), Contact.find_by_user_id(current_user.id).region %>
+    <%= text_field_tag (:region), @contact.region %>
   </div> 
   <div class="field">
     <%= label_tag :ethnicity, "Ethnicity" %><br />
-    <%= text_field_tag (:ethnicity), Contact.find_by_user_id(current_user.id).ethnicity %>
+    <%= text_field_tag (:ethnicity), @contact.ethnicity %>
   </div> 
   <div class="field">
     <%= label_tag :citizenship, "Citizenship" %><br />
-    <%= text_field_tag (:citizenship), Contact.find_by_user_id(current_user.id).citizenship %>
+    <%= text_field_tag (:citizenship), @contact.citizenship %>
   </div> 
   <div class="field">
     <%= label_tag :address, "Address" %><br />
-    <%= text_field_tag (:address), Contact.find_by_user_id(current_user.id).address %>
+    <%= text_field_tag (:address), @contact.address %>
   </div> 
   <div class="field">
     <%= label_tag :telephone, "Telephone" %><br />
-    <%= text_field_tag (:telephone), Contact.find_by_user_id(current_user.id).telephone %>
+    <%= text_field_tag (:telephone), @contact.telephone %>
   </div> 
   <div class="actions">
     <%= submit_tag("Submit") %>

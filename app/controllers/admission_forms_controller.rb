@@ -2,6 +2,7 @@ class AdmissionFormsController < ApplicationController
   # GET /admission_forms/new
   # GET /admission_forms/new.json
   def new
+    @contact = get_contact
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -14,7 +15,6 @@ class AdmissionFormsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Admission form was successfully updated.' }
         format.json { head :no_content }
       else
-        print "fuck"
         format.html { render action: 'new' }
         format.json { render json: @admission.errors, status: :unprocessable_entity }
       end

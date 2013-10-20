@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     @admission = Admission.new(admission_params)
   end
 
+  def get_contact
+    @contact = Contact.find_by_user_id(current_user.id)
+  end
+
   protected
 
   def configure_permitted_parameters
