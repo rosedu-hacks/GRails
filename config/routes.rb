@@ -1,10 +1,5 @@
 UniversityRegistration::Application.routes.draw do
-<<<<<<< HEAD
   devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
-=======
-  devise_for :users, :controllers => { :registrations => "registrations" }
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
->>>>>>> da8d0745203425465bd2a153974efefe3f9ca9c9
   # Static pages
   root to: 'static_pages#home'
   match :about, to: "static_pages#about", via: :get
