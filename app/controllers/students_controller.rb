@@ -26,6 +26,7 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
+    @student.user_id = params[:user_id]
     @student.status = 'new'
     @contact = create_contact contact_params
     respond_to do |format|
