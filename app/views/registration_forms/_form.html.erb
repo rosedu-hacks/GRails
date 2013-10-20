@@ -5,59 +5,68 @@
   </div>
   <div class="field">
     <%= label_tag :first_name, "First name" %><br />
-    <%= text_field_tag :first_name,  User.find(current_user.id).first_name %>
+    <%= text_field_tag :first_name, current_user.first_name, :readonly => true %>
   </div>
   <div class="field">
     <%= label_tag :last_name, "Last name" %><br />
-    <%= text_field_tag :last_name, User.find(current_user.id).last_name %>
+    <%= text_field_tag :last_name, current_user.last_name, :readonly => true %>
   </div>
+<h3> Parent info </h3>
   <div class="field">
     <%= label_tag :father_name, "Father name" %><br />
-    <%= text_field_tag :father_name, @student.father_name %>
+    <%= text_field_tag :father_name, Student.find_by_user_id(current_user.id).father_name, :readonly => true %>
   </div>
   <div class="field">
     <%= label_tag :mother_name, "Mother name" %><br />
-    <%= text_field_tag :mother_name, @student.mother_name %>
+    <%= text_field_tag :mother_name, Student.find_by_user_id(current_user.id).mother_name, :readonly => true %>
   </div>
+
+  <h3> Identification </h3>
   <div class="field">
     <%= label_tag :email,"Email" %><br />
-    <%= email_field_tag :email, User.find(current_user.id).email %>
+    <%= email_field_tag :email, current_user.email, :readonly => true%>
   </div>
   <div class="field">
     <%= label_tag :cnp, "CNP" %><br />
-    <%= text_field_tag :cnp, @contact.cnp %>
+    <%= text_field_tag :cnp,  @contact.cnp, :readonly => true%>
   </div>
   <div class="field">
+    <%= label_tag :type, "Type" %><br />
+    <%= text_field_tag (:id_type), @contact.id_type, :readonly => true %>
+  </div> 
+  <div class="field">
     <%= label_tag :serie, "Series of ID card" %><br />
-    <%= text_field_tag :serie, @contact.serie  %>
+    <%= text_field_tag (:serie), @contact.serie, :readonly => true %>
   </div>
   <div class="field">
     <%= label_tag :number, "Number of ID card" %><br />
-    <%= text_field_tag (:number) %>
+    <%= text_field_tag (:number), @contact.number, :readonly => true %>
   </div>
+
+  <h3> Location info </h3>
   <div class="field">
     <%= label_tag :country, "Country" %><br />
-    <%= text_field_tag (:country) %>
+    <%= text_field_tag (:country), @contact.country, :readonly => true %>
   </div> 
   <div class="field">
     <%= label_tag :region, "Region" %><br />
-    <%= text_field_tag (:region) %>
+    <%= text_field_tag (:region), @contact.region, :readonly => true %>
   </div> 
   <div class="field">
     <%= label_tag :ethnicity, "Ethnicity" %><br />
-    <%= text_field_tag (:ethnicity) %>
+    <%= text_field_tag (:ethnicity), @contact.ethnicity, :readonly => true %>
   </div> 
   <div class="field">
     <%= label_tag :citizenship, "Citizenship" %><br />
-    <%= text_field_tag (:citizenship) %>
+    <%= text_field_tag (:citizenship), @contact.citizenship, :readonly => true %>
   </div> 
   <div class="field">
     <%= label_tag :address, "Address" %><br />
-    <%= text_field_tag (:address) %>
+    <%= text_field_tag (:address), @contact.address, :readonly => true %>
   </div> 
   <div class="field">
     <%= label_tag :telephone, "Telephone" %><br />
-    <%= telephone_field_tag (:telephone) %>
+    <%= text_field_tag (:telephone), @contact.telephone, :readonly => true %>
   </div> 
   <div>
   <%= check_box_tag 'scholarship', '1', false %>

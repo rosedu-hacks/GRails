@@ -1,5 +1,6 @@
 class RegistrationFormsController < ApplicationController
  def new
+ 	@contact = get_contact
     @student = get_student_info
     respond_to do |format|
       format.html # show.html.erb
