@@ -1,6 +1,7 @@
-<%= form_tag(controller: "admission_forms", action: "populate", method: "post") do %>
+<%= form_tag(controller: "registration_forms", action: "populate", method: "post") do %>
 <div class="field"></div>
   <div class="field">
+    <%= hidden_field_tag "user_id", current_user.id %>
   </div>
   <div class="field">
     <%= label_tag :first_name, "First name" %><br />
@@ -10,23 +11,7 @@
     <%= label_tag :last_name, "Last name" %><br />
     <%= text_field_tag :last_name, current_user.last_name, :readonly => true %>
   </div>
-
-  <h3> Admission info </h3>
-  <%= fields_for :admission do |a| %>
-    <div class="field">
-      <%= a.label :field, "Field" %><br />
-      <%= a.text_field :field %>
-    </div>
-    <div class="field">
-      <%= a.label :specialization, "Specialization" %><br />
-      <%= a.text_field :specialization %>
-    </div>  
-    <div class="field">
-      <%= a.label :payment_type, "Payment type" %><br />
-      <%= a.text_field :payment_type %>
-    </div>   
-  <% end %>
-  <h3> Parent info </h3>
+<h3> Parent info </h3>
   <div class="field">
     <%= label_tag :father_name, "Father name" %><br />
     <%= text_field_tag :father_name, Student.find_by_user_id(current_user.id).father_name, :readonly => true %>
@@ -39,11 +24,11 @@
   <h3> Identification </h3>
   <div class="field">
     <%= label_tag :email,"Email" %><br />
-    <%= email_field_tag :email, current_user.email, :readonly => true %>
+    <%= email_field_tag :email, current_user.email, :readonly => true%>
   </div>
   <div class="field">
     <%= label_tag :cnp, "CNP" %><br />
-    <%= text_field_tag :cnp,  @contact.cnp, :readonly => true %>
+    <%= text_field_tag :cnp,  @contact.cnp, :readonly => true%>
   </div>
   <div class="field">
     <%= label_tag :type, "Type" %><br />
@@ -83,6 +68,15 @@
     <%= label_tag :telephone, "Telephone" %><br />
     <%= text_field_tag (:telephone), @contact.telephone, :readonly => true %>
   </div> 
+  <div>
+  <%= check_box_tag 'scholarship', '1', false %>
+   I want to receive scholarship in this university year
+  </div>
+    <div>
+  <%= check_box_tag 'hosting', '1', false %>
+   I want to stay in one of the university hostels
+  </div>
+  <div> </div>
   <div class="actions">
     <%= submit_tag("Submit") %>
   </div>
