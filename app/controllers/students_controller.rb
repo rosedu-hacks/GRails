@@ -44,7 +44,7 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
-      if @student.update(student_params)
+      if @student.update(student_params) && @contact.update(contact_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else

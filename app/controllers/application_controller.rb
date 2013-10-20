@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def create_contact contact_params
-    print contact_params
     if contact_params[:user_id].nil?
       contact_params[:user_id] = current_user.id
     end
