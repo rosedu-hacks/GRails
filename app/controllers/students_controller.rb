@@ -11,9 +11,6 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @student = Student.find_by_user_id(current_user.id)
-    @student.last_name = current_user.last_name
-    @student.first_name = current_user.first_name
-    @student.email = current_user.email
   end
 
   # GET /students/new
