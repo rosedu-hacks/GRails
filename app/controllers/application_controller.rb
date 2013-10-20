@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
   def get_student_info
     Student.find_by_user_id(current_user.id)
   end
+  
+  def get_contact_info
+    Contact.find_by_user_id(current_user.id)
+  end
   protected
 
   def configure_permitted_parameters
