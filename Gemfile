@@ -6,9 +6,12 @@ gem 'rails_12factor'
 gem 'bootstrap-sass', '2.3.2.0'
 
 gem 'koala'
-gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
-gem 'rails_admin'
+gem "omniauth", ">= 1.3.2"
+gem "omniauth-oauth2", ">= 1.1.2"
+gem 'omniauth-facebook'
+gem "rails_admin", ">= 1.3.0"
+gem "nokogiri", ">= 1.10.8"
+gem "haml", ">= 5.0.0"
 
 group :assets do
     gem "therubyracer"
@@ -24,7 +27,7 @@ group :production, :testing do
 end
 
 # Use Devise for user authentification
-gem 'devise'
+gem "devise", ">= 4.7.1"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
